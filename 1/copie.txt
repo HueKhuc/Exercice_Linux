@@ -1,0 +1,124 @@
+ubuntu@ubuntu-2204:~/Test$ find --help
+Usage: find [-H] [-L] [-P] [-Olevel] [-D debugopts] [path...] [expression]
+
+default path is the current directory; default expression is -print
+expression may consist of: operators, options, tests, and actions:
+operators (decreasing precedence; -and is implicit where no others are given):
+      ( EXPR )   ! EXPR   -not EXPR   EXPR1 -a EXPR2   EXPR1 -and EXPR2
+      EXPR1 -o EXPR2   EXPR1 -or EXPR2   EXPR1 , EXPR2
+positional options (always true): -daystart -follow -regextype
+
+normal options (always true, specified before other expressions):
+      -depth --help -maxdepth LEVELS -mindepth LEVELS -mount -noleaf
+      --version -xdev -ignore_readdir_race -noignore_readdir_race
+tests (N can be +N or -N or N): -amin N -anewer FILE -atime N -cmin N
+      -cnewer FILE -ctime N -empty -false -fstype TYPE -gid N -group NAME
+      -ilname PATTERN -iname PATTERN -inum N -iwholename PATTERN -iregex PATTERN
+      -links N -lname PATTERN -mmin N -mtime N -name PATTERN -newer FILE
+      -nouser -nogroup -path PATTERN -perm [-/]MODE -regex PATTERN
+      -readable -writable -executable
+      -wholename PATTERN -size N[bcwkMG] -true -type [bcdpflsD] -uid N
+      -used N -user NAME -xtype [bcdpfls]      -context CONTEXT
+
+actions: -delete -print0 -printf FORMAT -fprintf FILE FORMAT -print 
+      -fprint0 FILE -fprint FILE -ls -fls FILE -prune -quit
+      -exec COMMAND ; -exec COMMAND {} + -ok COMMAND ;
+      -execdir COMMAND ; -execdir COMMAND {} + -okdir COMMAND ;
+
+Valid arguments for -D:
+exec, opt, rates, search, stat, time, tree, all, help
+Use '-D help' for a description of the options, or see find(1)
+
+Please see also the documentation at https://www.gnu.org/software/findutils/.
+You can report (and track progress on fixing) bugs in the "find"
+program via the GNU findutils bug-reporting page at
+https://savannah.gnu.org/bugs/?group=findutils or, if
+you have no web access, by sending email to <bug-findutils@gnu.org>.
+ubuntu@ubuntu-2204:~/Test$ cd ..
+ubuntu@ubuntu-2204:~$ pwd
+/home/ubuntu
+ubuntu@ubuntu-2204:~$ mkdir -p Work/Linux/exercices
+ubuntu@ubuntu-2204:~$ touch --help
+Usage: touch [OPTION]... FILE...
+Update the access and modification times of each FILE to the current time.
+
+A FILE argument that does not exist is created empty, unless -c or -h
+is supplied.
+
+A FILE argument string of - is handled specially and causes touch to
+change the times of the file associated with standard output.
+
+Mandatory arguments to long options are mandatory for short options too.
+  -a                     change only the access time
+  -c, --no-create        do not create any files
+  -d, --date=STRING      parse STRING and use it instead of current time
+  -f                     (ignored)
+  -h, --no-dereference   affect each symbolic link instead of any referenced
+                         file (useful only on systems that can change the
+                         timestamps of a symlink)
+  -m                     change only the modification time
+  -r, --reference=FILE   use this file's times instead of current time
+  -t STAMP               use [[CC]YY]MMDDhhmm[.ss] instead of current time
+      --time=WORD        change the specified time:
+                           WORD is access, atime, or use: equivalent to -a
+                           WORD is modify or mtime: equivalent to -m
+      --help     display this help and exit
+      --version  output version information and exit
+
+Note that the -d and -t options accept different time-date formats.
+
+GNU coreutils online help: <https://www.gnu.org/software/coreutils/>
+Full documentation <https://www.gnu.org/software/coreutils/touch>
+or available locally via: info '(coreutils) touch invocation'
+ubuntu@ubuntu-2204:~$ touch Work/Linux/exercices/exercice1.txt
+ubuntu@ubuntu-2204:~$ touch Work/Linux/exercices/exercice2.txt
+ubuntu@ubuntu-2204:~$ cd Work/Linux/exercices/
+ubuntu@ubuntu-2204:~/Work/Linux/exercices$ pwd
+/home/ubuntu/Work/Linux/exercices
+ubuntu@ubuntu-2204:~/Work/Linux/exercices$ mkdir 1 2
+ubuntu@ubuntu-2204:~/Work/Linux/exercices$ ls
+1  2  exercice1.txt  exercice2.txt
+ubuntu@ubuntu-2204:~/Work/Linux/exercices$ mv exercice1.txt /1
+mv: cannot move 'exercice1.txt' to '/1': Permission denied
+ubuntu@ubuntu-2204:~/Work/Linux/exercices$ mv exercice1.txt /1/exercice1
+mv: cannot move 'exercice1.txt' to '/1/exercice1': No such file or directory
+ubuntu@ubuntu-2204:~/Work/Linux/exercices$ mv exercice1.txt /1/exercice1-1
+mv: cannot move 'exercice1.txt' to '/1/exercice1-1': No such file or directory
+ubuntu@ubuntu-2204:~/Work/Linux/exercices$ mv exercice1.txt /1/exercice1_1.txt
+mv: cannot move 'exercice1.txt' to '/1/exercice1_1.txt': No such file or directory
+ubuntu@ubuntu-2204:~/Work/Linux/exercices$ mv exercice1.txt exercice/1/exercice1_1.txt
+mv: cannot move 'exercice1.txt' to 'exercice/1/exercice1_1.txt': No such file or directory
+ubuntu@ubuntu-2204:~/Work/Linux/exercices$ mv exercice1.txt exercices/1/exercice1_1.txt
+mv: cannot move 'exercice1.txt' to 'exercices/1/exercice1_1.txt': No such file or directory
+ubuntu@ubuntu-2204:~/Work/Linux/exercices$ mv exercice1.txt /exercices/1/exercice1_1.txt
+mv: cannot move 'exercice1.txt' to '/exercices/1/exercice1_1.txt': No such file or directory
+ubuntu@ubuntu-2204:~/Work/Linux/exercices$ pwd
+/home/ubuntu/Work/Linux/exercices
+ubuntu@ubuntu-2204:~/Work/Linux/exercices$ ls
+1  2  exercice1.txt  exercice2.txt
+ubuntu@ubuntu-2204:~/Work/Linux/exercices$ cd 1
+ubuntu@ubuntu-2204:~/Work/Linux/exercices/1$ ls
+ubuntu@ubuntu-2204:~/Work/Linux/exercices/1$ cd ..
+ubuntu@ubuntu-2204:~/Work/Linux/exercices$ mv exercice1.txt /1/ex1.txt
+mv: cannot move 'exercice1.txt' to '/1/ex1.txt': No such file or directory
+ubuntu@ubuntu-2204:~/Work/Linux/exercices$ nano exercice1.txt 
+ubuntu@ubuntu-2204:~/Work/Linux/exercices$ ^C
+ubuntu@ubuntu-2204:~/Work/Linux/exercices$ nano exercice1.txt 
+
+total 16
+drwxrwxr-x 4 ubuntu ubuntu 4096 Jan  5 09:15 .
+drwxrwxr-x 3 ubuntu ubuntu 4096 Jan  5 08:39 ..
+drwxrwxr-x 2 ubuntu ubuntu 4096 Jan  5 09:17 1
+drwxrwxr-x 2 ubuntu ubuntu 4096 Jan  5 09:06 2
+
+./1:
+total 16
+drwxrwxr-x 2 ubuntu ubuntu 4096 Jan  5 09:17 .
+drwxrwxr-x 4 ubuntu ubuntu 4096 Jan  5 09:15 ..
+-rw-rw-r-- 1 ubuntu ubuntu 5948 Jan  5 09:17 exercice1.txt
+
+./2:
+total 8
+drwxrwxr-x 2 ubuntu ubuntu 4096 Jan  5 09:06 .
+drwxrwxr-x 4 ubuntu ubuntu 4096 Jan  5 09:15 ..
+-rw-rw-r-- 1 ubuntu ubuntu    0 Jan  5 08:43 exercice2.txt
