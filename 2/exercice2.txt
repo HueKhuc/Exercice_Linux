@@ -1,0 +1,14 @@
+Quel est la taille (le poids en octets / kilo-octets) de exercice1.txt ? 8
+
+Quelles sont les différences entre les commandes less et more ?
+	- more : on ne peut qu'afficher le contenu du fichier
+	- less : naviguer, rechercher, etc.
+
+Quelle commande utiliser pour lister les processus actuellement actifs ? ps -e
+
+Quelle commande utiliser pour demander "poliment" l'arrêt du programme java ? pkill killall -9 java
+
+Quelle commande utiliser pour arrêter le processus ayant l'identifiant 5240 ? kill -SIGKILL 5240 
+
+
+
